@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.msieff.movies.domain.model.common.State" />
+
+        <import type="com.msieff.movies.presentation.model.ContentType" />
+
+        <variable
+            name="viewModel"
+            type="com.msieff.movies.presentation.search.SearchViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/searchInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:background="@color/transparent"
+            android:hint="@{viewModel.contentType == ContentType.MOVIES ? @string/search_hint_movies : @string/search_hint_tv_shows}"
+            android:inputType="textCapWords"
+            android:text="@={viewModel.searchTerm}"
+            android:textColor="@color/onBackground"
+            android:textColorHint="@color/onBackgroundSecondary"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <requestFocus />
+        </EditText>
+
+        <View
+            android:id="@+id/searchInputDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/margin_standard"
+            android:background="@color/white_50"
+            app:layout_constraintEnd_toEndOf="@+id/searchInput"
+            app:layout_constraintStart_toStartOf="@+id/searchInput"
+            app:layout_constraintTop_toBottomOf="@+id/searchInput" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:name="com.msieff.movies.presentation.DiscoverContentFragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="@dimen/margin_big"
+            android:layout_marginRight="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchInputDivider"
+            tools:context=".presentation.discover.DiscoverContentFragment"
+            tools:listitem="@layout/item_discover_section" />
+
+        <TextView
+            android:id="@+id/emptyMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_medium"
+            android:text="@string/search_empty"
+            android:textAppearance="@style/TextAppearance.EmptyMessage"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--    </androidx.core.widget.NestedScrollView>-->
+</layout>

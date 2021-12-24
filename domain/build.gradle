@@ -1,0 +1,47 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
+}
+
+
+dependencies {
+    implementation domainDependencies.coroutines
+    implementation domainDependencies.hilt
+    implementation domainDependencies.hiltCompiler
+
+    // Test
+    testImplementation domainTestDependencies.junit
+    testImplementation domainTestDependencies.testCore
+    testImplementation domainTestDependencies.hiltTesting
+    kaptTest domainTestDependencies.hiltTestingCompiler
+    testImplementation domainTestDependencies.mockk
+    testImplementation domainTestDependencies.robolectric
+
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation_graph"
+    app:startDestination="@id/discoverMovies">
+
+    <fragment
+        android:id="@+id/discoverMovies"
+        android:name="com.msieff.movies.presentation.discover.DiscoverContentFragment"
+        android:label="@string/movies_title"
+        tools:layout="@layout/fragment_discover_content">
+
+        <argument
+            android:name="contentType"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/navigateToContentDetails"
+            app:destination="@id/contentDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/discoverTVShows"
+        android:name="com.msieff.movies.presentation.discover.DiscoverContentFragment"
+        android:label="@string/tv_shows_title"
+        tools:layout="@layout/fragment_discover_content">
+
+        <argument
+            android:name="contentType"
+            android:defaultValue="1"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/navigateToContentDetails"
+            app:destination="@id/contentDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/contentDetails"
+        android:name="com.msieff.movies.presentation.content_details.ContentDetailsFragment"
+        android:label="@string/content_details_title"
+        tools:layout="@layout/fragment_content_details">
+
+        <argument
+            android:name="content"
+            app:argType="com.msieff.movies.domain.model.Content" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchMovies"
+        android:name="com.msieff.movies.presentation.search.SearchFragment"
+        android:label="@string/search_title"
+        tools:layout="@layout/fragment_search">
+
+        <argument
+            android:name="contentType"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/navigateToContentDetails"
+            app:destination="@id/contentDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchTVShows"
+        android:name="com.msieff.movies.presentation.search.SearchFragment"
+        android:label="@string/search_title"
+        tools:layout="@layout/fragment_search">
+
+        <argument
+            android:name="contentType"
+            android:defaultValue="1"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/navigateToContentDetails"
+            app:destination="@id/contentDetails"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+</navigation>

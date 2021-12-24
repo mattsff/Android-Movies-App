@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Movies App</string>
+
+    <string name="search_title">Search</string>
+    <string name="content_details_title">Content Details</string>
+
+    <string name="action_retry">Retry</string>
+
+    <string name="movies_title">Movies</string>
+    <string name="tv_shows_title">TV Shows</string>
+    <string name="category_top_rated">Popular</string>
+    <string name="category_popular">Top Rated</string>
+    <string name="discover_empty">There is no content to display. Please try again later.</string>
+    <string name="discover_generic_error">The content could not be updated at this time.Please, try again.</string>
+
+    <string name="search_empty">There are no results that match your search</string>
+    <string name="search_generic_error">Your request could not be executed. Please, try again.</string>
+
+    <string name="content_description_movie_cover">Movie cover</string>
+    <string name="content_description_movie_photo">Movie photo</string>
+    <string name="content_description_rating_icon">Rating icon</string>
+    <string name="content_trailers">Trailers</string>
+    <string name="content_overview">Overview</string>
+    <string name="content_description_movie_description">Content video</string>
+    <string name="content_description_play_button">Play button</string>
+    <string name="search_hint_movies">Type a Movie</string>
+    <string name="search_hint_tv_shows">Type a TV Show</string>
+
+</resources>

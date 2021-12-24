@@ -1,0 +1,120 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+
+ext {
+    //Android
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 31
+    androidCompileSdkVersion = 31
+
+    //Libraries
+    hiltVersion = '2.40.5'
+    lifecycleVersion = '2.4.0'
+    activityKtxVersion = '1.4.0'
+    appCompatVersion = '1.4.0'
+    materialVersion = '1.4.0'
+    constraintLayout = '2.1.2'
+    recyclerViewVersion = '1.2.1'
+    cardViewVersion = '1.0.0'
+    shimmerVersion = '0.5.0'
+    navigationVersion = '1.3.5'
+    coroutinesVersion = '1.5.1'
+    retrofitVersion = '2.9.0'
+    okHttpVersion = '4.9.0'
+    roomVersion = '2.4.0'
+    glideVersion = '4.12.0'
+    jUnitVersion = '4.+'
+    androidXTest = '1.4.0'
+    mockkVersion = '1.12.1'
+    robolectricVersion = '4.7.3'
+    testRunnerVersion = '1.1.0'
+    espressoVersion = '3.4.0'
+
+
+    appDependencies = [
+            hilt         : "com.google.dagger:hilt-android:${hiltVersion}",
+            hiltCompiler : "com.google.dagger:hilt-compiler:${hiltVersion}",
+            retrofit     : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGson : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            okHttp       : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogging: "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            room         : "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler : "androidx.room:room-compiler:${roomVersion}",
+    ]
+
+    presentationDependencies = [
+            appCompat         : "androidx.appcompat:appcompat:${appCompatVersion}",
+            material          : "com.google.android.material:material:${materialVersion}",
+            constraintLayout  : "androidx.constraintlayout:constraintlayout:${constraintLayout}",
+            liveData          : "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycleVersion}",
+            viewModel         : "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}",
+            activityKtx       : "androidx.activity:activity-ktx:${activityKtxVersion}",
+            recyclerView      : "androidx.recyclerview:recyclerview:${recyclerViewVersion}",
+            navigationFragment: "androidx.navigation:navigation-fragment-ktx:${navigationVersion}",
+            navigationUI      : "androidx.navigation:navigation-ui-ktx:${navigationVersion}",
+            cardView          : "androidx.cardview:cardview:${cardViewVersion}",
+            shimmer           : "com.facebook.shimmer:shimmer:${shimmerVersion}",
+            coroutines        : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+            glide             : "com.github.bumptech.glide:glide:${glideVersion}",
+            glideCompiler     : "com.github.bumptech.glide:compiler:${glideVersion}",
+            hilt              : "com.google.dagger:hilt-android:${hiltVersion}",
+            hiltCompiler      : "com.google.dagger:hilt-compiler:${hiltVersion}"
+    ]
+
+    presentationTestDependencies = [
+            hiltTesting        : "com.google.dagger:hilt-android-testing:${hiltVersion}",
+            hiltTestingCompiler: "com.google.dagger:hilt-compiler:${hiltVersion}",
+            junit              : "junit:junit:${jUnitVersion}",
+            testCore           : "androidx.test:core:${androidXTest}",
+            navigationTesting  : "androidx.navigation:navigation-testing:${navigationVersion}",
+            mockk              : "io.mockk:mockk:${mockkVersion}",
+            mockkAndroid       : "io.mockk:mockk-android:${mockkVersion}",
+            robolectric        : "org.robolectric:robolectric:${robolectricVersion}",
+            espresso           : "androidx.test.espresso:espresso-core:${espressoVersion}",
+            fragmentTesting    : "androidx.fragment:fragment-testing:${androidXTest}",
+    ]
+
+    domainDependencies = [
+            coroutines  : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+            hilt        : "com.google.dagger:hilt-android:${hiltVersion}",
+            hiltCompiler: "com.google.dagger:hilt-compiler:${hiltVersion}"
+    ]
+
+    domainTestDependencies = [
+            hiltTesting        : "com.google.dagger:hilt-android-testing:${hiltVersion}",
+            hiltTestingCompiler: "com.google.dagger:hilt-compiler:${hiltVersion}",
+            junit              : "junit:junit:${jUnitVersion}",
+            testCore           : "androidx.test:core:${androidXTest}",
+            mockk              : "io.mockk:mockk:${mockkVersion}",
+            robolectric        : "org.robolectric:robolectric:${robolectricVersion}"
+    ]
+
+    dataDependencies = [
+            coroutines    : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}",
+            hilt          : "com.google.dagger:hilt-android:${hiltVersion}",
+            hiltCompiler  : "com.google.dagger:hilt-compiler:${hiltVersion}",
+            retrofit      : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGson  : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            okHttp        : "com.squareup.okhttp3:okhttp:${okHttpVersion}",
+            okHttpLogging : "com.squareup.okhttp3:logging-interceptor:${okHttpVersion}",
+            room          : "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler  : "androidx.room:room-compiler:${roomVersion}",
+            roomExtensions: "androidx.room:room-ktx:${roomVersion}"
+    ]
+
+    dataTestDependencies = [
+            hiltTesting        : "com.google.dagger:hilt-android-testing:${hiltVersion}",
+            hiltTestingCompiler: "com.google.dagger:hilt-compiler:${hiltVersion}",
+            junit              : "junit:junit:${jUnitVersion}",
+            testCore           : "androidx.test:core:${androidXTest}",
+            mockk              : "io.mockk:mockk:${mockkVersion}",
+            robolectric        : "org.robolectric:robolectric:${robolectricVersion}"
+
+    ]
+
+}

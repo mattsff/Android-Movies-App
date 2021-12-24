@@ -1,0 +1,99 @@
+plugins {
+    id "com.android.library"
+    id 'kotlin-android'
+    id 'dagger.hilt.android.plugin'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+android {
+    compileSdk 31
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+    compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+
+    defaultConfig {
+        minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+        targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+        testInstrumentationRunner "com.msieff.movies.presentation.HiltTestRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/gradle/incremental.annotation.processors'
+    }
+}
+
+dependencies {
+    // Android
+    implementation presentationDependencies.appCompat
+    implementation presentationDependencies.material
+    implementation presentationDependencies.constraintLayout
+    implementation presentationDependencies.liveData
+    implementation presentationDependencies.viewModel
+    implementation presentationDependencies.activityKtx
+    implementation presentationDependencies.navigationFragment
+    implementation presentationDependencies.navigationUI
+
+    // Views
+    implementation presentationDependencies.recyclerView
+    implementation presentationDependencies.cardView
+    implementation presentationDependencies.shimmer
+    implementation presentationDependencies.glide
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt presentationDependencies.glideCompiler
+
+    // Coroutines
+    implementation presentationDependencies.coroutines
+
+    // Dependency injection
+    implementation presentationDependencies.hilt
+    kapt presentationDependencies.hiltCompiler
+
+    // Modules
+    implementation project(path: ':domain')
+
+    // Test
+    testImplementation presentationTestDependencies.junit
+    testImplementation presentationTestDependencies.testCore
+    testImplementation presentationTestDependencies.hiltTesting
+    kaptTest presentationTestDependencies.hiltTestingCompiler
+    testImplementation presentationTestDependencies.mockk
+    testImplementation presentationTestDependencies.robolectric
+
+    androidTestImplementation presentationTestDependencies.junit
+    androidTestImplementation presentationTestDependencies.espresso
+    androidTestImplementation presentationTestDependencies.fragmentTesting
+    androidTestImplementation presentationTestDependencies.mockkAndroid
+    androidTestImplementation presentationTestDependencies.hiltTesting
+    kaptAndroidTest presentationTestDependencies.hiltTestingCompiler
+}
+
+kapt {
+    correctErrorTypes true
+}

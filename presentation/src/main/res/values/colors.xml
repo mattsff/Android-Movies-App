@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background">#000</color>
+    <color name="onBackground">#FFF</color>
+    <color name="onBackgroundSecondary">#BFFFFFFF</color>
+    <color name="disabledOnBackground">#888</color>
+
+    <color name="red_200">#DA0303</color>
+    <color name="red_700">#870101</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="light_grey">#ccc</color>
+    <color name="white_50">#88FFFFFF</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="bottomNavigationBackground">#121212</color>
+    <color name="placeholder">#B8B8B8</color>
+
+</resources>
